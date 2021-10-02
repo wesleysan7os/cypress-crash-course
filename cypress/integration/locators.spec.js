@@ -28,5 +28,9 @@ describe("Locators", () => {
 
     // Get all elements by tag name AND class AND type attribute
     cy.get("button.Elements-btn[type='submit']")
+
+    // Gel all elements by with specific data test id
+    cy.get("[data-cy='btn-id-1']")
+    cy.getByTestId("btn-id-1")
   })
 })
