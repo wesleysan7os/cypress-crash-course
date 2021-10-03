@@ -33,4 +33,26 @@ describe("Locators", () => {
     cy.get("[data-cy='btn-id-1']")
     cy.getByTestId("btn-id-1")
   })
+
+  it("locating elements with contains", () => {
+    // Get element by text
+    cy.contains("Unique Text")
+
+    // Get element by text (not unique)
+    cy.contains("Not Unique Text")
+
+    // Get element by selector 
+    cy.contains("[type='submit']", "Not Unique Text")
+
+    // find the form element, and then the element that contains "Not Unique Text"
+    // inside of that form element
+    cy.contains("form", "Not Unique Text")
+
+    cy.get("[type='submit']").contains("Not Unique Text")
+  })
+
+  it("locating elements with find", () => {
+    cy.get("#form-1").find(".btn-1")
+    cy.get("#form-1").find(".btn-2")
+  })
 })
